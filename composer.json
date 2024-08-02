@@ -1,0 +1,64 @@
+{
+    "name": "valmar-holdings/dialer-template",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/laravel-shift/laravel-self-diagnosis"
+        }
+    ],
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "dev-master@dev",
+        "brianium/paratest": "^6.4",
+        "fakerphp/faker": "^1.9.1",
+        "genealabs/php-coding-standards": "dev-main@dev",
+        "laravel/pint": "^1.0",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^6.1",
+        "orchestra/testbench": "^7.0",
+        "phpmd/phpmd": "^2.12",
+        "phpstan/phpstan": "^1.6",
+        "phpunit/phpunit": "^9.5.10",
+        "spatie/laravel-ignition": "^1.2",
+        "squizlabs/php_codesniffer": "^3.7",
+        "symfony/thanks": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "ValmarHoldings\\DialerTemplate\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ValmarHoldings\\DialerTemplate\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [],
+            "providers": [
+                "Package\\Providers\\Service"
+            ]
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "symfony/thanks": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

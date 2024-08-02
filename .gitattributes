@@ -1,0 +1,15 @@
+* text=auto
+
+*.blade.php diff=html
+*.css diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php
+
+.styleci.yml export-ignore
+/.devcontainer export-ignore
+/.github export-ignore
+/.github export-ignore
+/.vscode export-ignore
+/docker export-ignore
+CHANGELOG.md export-ignore
