@@ -2,17 +2,16 @@
 
 declare(strict_types=1);
 
-namespace ValmarHoldings\DialerPackage\Bases;
+namespace ValmarHoldings\DialerLiftUp\Bases;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use stdClass;
-use ValmarHoldings\CashierRepay\Services\Processor;
+use ValmarHoldings\DialerLiftUp\Services\Processor;
 
 abstract class Resource extends JsonResource
 {
-    public string $httpMethod = "post";
     public string $apiEndpoint = "";
-    public ?stdClass $response = null;
+    public string $httpMethod = "post";
+    public ?string $response = null;
     public ?ValueObject $result = null;
     protected int $page;
 
@@ -26,7 +25,7 @@ abstract class Resource extends JsonResource
         return $this;
     }
 
-    public function ingest(stdClass $response): self
+    public function ingest(string $response): self
     {
         $this->response = $response;
 

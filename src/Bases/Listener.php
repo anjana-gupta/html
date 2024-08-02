@@ -2,16 +2,14 @@
 
 declare(strict_types=1);
 
-namespace ValmarHoldings\DialerPackage\Bases;
+namespace ValmarHoldings\DialerLiftUp\Bases;
 
-use Illuminate\Support\Str;
-use ValmarHoldings\DialerPackage\Providers\Service;
+use ValmarHoldings\DialerLiftUp\Providers\Service;
 
 abstract class Listener
 {
-    protected function canProcessEvent(mixed $event): bool
+    protected function canProcessEvent(): bool
     {
-        return ! Str::startsWith($event->processor, Service::$packageName)
-            || ! Service::isEnabled()
+        return Service::isEnabled();
     }
 }

@@ -2,20 +2,21 @@
 
 declare(strict_types=1);
 
-namespace ValmarHoldings\DialerPackage\Listeners;
+namespace ValmarHoldings\DialerLiftUp\Listeners;
 
-use Illuminate\Support\Str;
-use Throwable;
-use ValmarHoldings\DialerCore\Events\ContactWasAdded as ContactWasAddedEvent;
+use ValmarHoldings\DialerCore\Events\ContactWasAdded;
+use ValmarHoldings\DialerLiftUp\Bases\Listener;
+use ValmarHoldings\DialerLiftUp\Http\Resources\AddContact;
 
-class ContactWasAdded extends Listener
+class ContactAdded extends Listener
 {
-    public function handle(ContactWasAddedEvent $event): void
+    public function handle(ContactWasAdded $event): void
     {
         if (! $this->canProcessEvent($event)) {
             return;
         }
 
-        (new AddContact($event->contact))->execute();
+        (new AddContact($event->contact))
+            ->execute();
     }
 }

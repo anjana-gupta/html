@@ -1,42 +1,58 @@
 {
-    "name": "valmar-holdings/dialer-template",
+    "name": "valmar-holdings/dialer-liftup",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
-    "license": "MIT",
+    "description": "",
+    "keywords": ["package", "laravel", "dialer", "liftup"],
+    "license": "proprietary",
     "repositories": [
         {
             "type": "vcs",
             "url": "https://github.com/laravel-shift/laravel-self-diagnosis"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Valmar-Holdings/dialer-core"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Valmar-Holdings/laravel-linters"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Valmar-Holdings/laravel-phone"
         }
     ],
     "require": {
-        "php": "^8.2"
+        "php": "^8.2",
+        "genealabs/laravel-null-carbon": "^0.5.0|^10.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "illuminate/support": "^9.0|^10.0",
+        "jenssegers/model": "^1.5",
+        "valmar-holdings/dialer-core": "dev-laravel-9@dev|^10.0.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "dev-master@dev",
-        "brianium/paratest": "^6.4",
+        "brianium/paratest": "^7.4",
         "fakerphp/faker": "^1.9.1",
-        "genealabs/php-coding-standards": "dev-main@dev",
         "laravel/pint": "^1.0",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
-        "orchestra/testbench": "^7.0",
+        "nunomaduro/collision": "^7.1",
+        "orchestra/testbench": "^8.0",
         "phpmd/phpmd": "^2.12",
         "phpstan/phpstan": "^1.6",
-        "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.2",
-        "squizlabs/php_codesniffer": "^3.7",
-        "symfony/thanks": "^1.2"
+        "phpunit/phpunit": "^10.5",
+        "spatie/laravel-ignition": "^2.0",
+        "symfony/thanks": "^1.2",
+        "valmar-holdings/laravel-linter": "dev-main@dev"
     },
     "autoload": {
         "psr-4": {
-            "ValmarHoldings\\DialerTemplate\\": "src/"
+            "ValmarHoldings\\DialerLiftUp\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ValmarHoldings\\DialerTemplate\\Tests\\": "tests/"
+            "ValmarHoldings\\DialerLiftUp\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -45,7 +61,7 @@
         "laravel": {
             "dont-discover": [],
             "providers": [
-                "Package\\Providers\\Service"
+                "ValmarHoldings\\DialerLiftUp\\Providers\\Service"
             ]
         }
     },
