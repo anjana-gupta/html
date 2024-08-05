@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ValmarHoldings\DialerPackage\Bases;
+namespace ValmarHoldings\DialerLiftUp\Bases;
 
 use Jenssegers\Model\Model;
 use ValmarHoldings\DialerLiftUp\Contracts\ValueObject as ValueObjectContract;

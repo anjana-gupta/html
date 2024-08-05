@@ -9,7 +9,6 @@ use ValmarHoldings\DialerCore\Contracts\Dialer;
 use ValmarHoldings\DialerCore\Events\ContactsWereAdded;
 use ValmarHoldings\DialerCore\Events\ContactWasAdded;
 use ValmarHoldings\DialerCore\Events\PhoneNumberWasDialed;
-use ValmarHoldings\DialerCore\ValueObjects\Campaign;
 use ValmarHoldings\DialerCore\ValueObjects\Contact;
 use ValmarHoldings\DialerCore\ValueObjects\PhoneCall;
 use ValmarHoldings\DialerLiftUp\Providers\Service;
@@ -48,17 +47,17 @@ class LiftUp implements Dialer
         return;
     }
 
-    public function getCampaigns(): Collection
-    {
-        $packageName = Service::$packageName;
+    // public function getCampaigns(): Collection
+    // {
+    //     $packageName = Service::$packageName;
 
-        return collect([
-            (new Campaign)->fill([
-                "id" => config("dialer.{$packageName}.inbound-campaign"),
-                "name" => config("dialer.{$packageName}.inbound-campaign"),
-            ]),
-        ]);
-    }
+    //     return collect([
+    //         (new Campaign)->fill([
+    //             "id" => config("dialer.{$packageName}.inbound-campaign"),
+    //             "name" => config("dialer.{$packageName}.inbound-campaign"),
+    //         ]),
+    //     ]);
+    // }
 
     public function isEnabled(): bool
     {

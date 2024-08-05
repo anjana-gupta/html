@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider as BaseProvider;
 use ValmarHoldings\DialerCore\Events\ContactsWereAdded;
 use ValmarHoldings\DialerCore\Events\ContactWasAdded;
+use ValmarHoldings\DialerCore\Events\ContactWentOnDoNotCall;
 use ValmarHoldings\DialerCore\Events\PhoneNumberWasDialed;
+use ValmarHoldings\DialerLiftUp\Listeners\AddContactToDNC;
 use ValmarHoldings\DialerLiftUp\Listeners\ContactAdded;
 use ValmarHoldings\DialerLiftUp\Listeners\ContactsAdded;
 use ValmarHoldings\DialerLiftUp\Listeners\PhoneDialed;
@@ -27,18 +29,20 @@ class Service extends BaseProvider
         );
         Event::listen(ContactWasAdded::class, [ContactAdded::class, "handle"]);
         Event::listen(
+            ContactWentOnDoNotCall::class,
+            [AddContactToDNC::class, "handle"],
+        );
+        Event::listen(
             PhoneNumberWasDialed::class,
             [PhoneDialed::class, "handle"],
         );
     }
 
-    public static function isEnabled(?string $packageName = "ucontact"): bool
+    public static function isEnabled(?string $packageName = "liftup"): bool
     {
         $packageName = $packageName
             ?: self::$packageName;
 
-        return config("dialer.{$packageName}.environment")
-            && config("dialer.{$packageName}.password")
-            && config("dialer.{$packageName}.username");
+        return config("dialer.{$packageName}.authorization");
     }
 }
